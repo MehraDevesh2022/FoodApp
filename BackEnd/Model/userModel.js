@@ -17,11 +17,11 @@
 
 const mongoose = require("mongoose");
 // DB_link from secret.js || from process.env if connected heroku with server
-const secret = process.env.DB_LINK || require("../secret");
+const DB_LINK= process.env.DB_LINK || require("../secret").DB_LINK;
 
 
 mongoose
-  .connect(secret.DB_LINK)
+  .connect(DB_LINK)
   .then(function () {
     console.log("connected");
   })
