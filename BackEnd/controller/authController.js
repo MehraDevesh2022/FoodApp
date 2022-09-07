@@ -1,9 +1,8 @@
 const userModel = require("../Model/userModel");
 // jwt ( for genrating token)
 const jwt = require("jsonwebtoken");
-// secret key file importing
-const secrets = require("../secret");
-const secret = require("../secret");
+// secret key file importing ||from  process.env if serever conected with heroku  
+const secrets = process.env || require("../secret");
 const nodemailer = require("../utilities/nodemailer");
 
 // ******************************** controller function *****************************\\

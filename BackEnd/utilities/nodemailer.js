@@ -1,6 +1,7 @@
 
 const nodemailer = require("nodemailer");
-const secret = require("../secret");
+// app_pass and app_email from secret.js || from heroku if connected
+const secret = process.env || require("../secret");
 async function mailSender(email , token) {
   console.log(email);
   let transporter = nodemailer.createTransport({

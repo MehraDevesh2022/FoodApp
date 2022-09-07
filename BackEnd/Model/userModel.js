@@ -16,7 +16,8 @@
 // mongooes :
 
 const mongoose = require("mongoose");
-const secret = require("../secret");
+// DB_link from secret.js || from process.env if connected heroku with server
+const secret = process.env.DB_LINK || require("../secret");
 
 
 mongoose

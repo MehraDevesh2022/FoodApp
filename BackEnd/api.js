@@ -18,7 +18,12 @@ app.use("/api/v1/user", userRouter);
 app.use("/api/v1/plan", planRouter);
 
 
-// creating a server at port number 3000
-app.listen(3000, function () {
+app.use(function(req , res){
+  res.send("<h1>Backend API</h1>")
+})
+
+// creating a server at port number 3000 || heroku process.env.PORT (if server provided heroku then it will used process.env.PORT else loacly 3000)
+const port = process.env.PORT || 300
+app.listen(port, function () {
   console.log("This is from Port 3000");
 });
