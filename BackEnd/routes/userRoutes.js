@@ -11,7 +11,7 @@ const {
 const { protectRoute } = require("../controller/authController");
 
 //users data => get all user data => sensitive data => add midlleware with in it => only loged in user get that data
-userRouter.get("/users", protectRoute, getAlluserController);
+userRouter.get("/", protectRoute, getAlluserController);
 
 // get user data =>  who is loged in current time .
 userRouter.get("/user", protectRoute, profileController);

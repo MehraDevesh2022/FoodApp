@@ -17,17 +17,15 @@
 
 const mongoose = require("mongoose");
 // DB_link from secret.js || from process.env if connected heroku with server
-const DB_LINK= process.env.DB_LINK || require("../secret").DB_LINK;
-
-
-mongoose
-  .connect(DB_LINK)
-  .then(function () {
-    console.log("connected");
-  })
-  .catch(function () {
-    console.log("error", "err");
-  });
+const secret = require("../secret");  //process.env.DB_LINK ||
+  mongoose
+    .connect(secret.DB_LINK)
+    .then(function () {
+      console.log("connected");
+    })
+    .catch(function () {
+      console.log("error", "err");
+    });
 // how to define schema => which entries written here only thoes entry allow in dataBase nothing more nothing less.
 let userSchema = new mongoose.Schema({
   name: {

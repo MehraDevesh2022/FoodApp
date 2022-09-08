@@ -28,6 +28,15 @@ let planSchema = new mongooes.Schema({
     type: Number,
     required: [true, "You Need to provide duration"],
   },
+
+  // for finding review of this plan from reviewModel
+  review: {
+    type: [mongooes.Schema.ObjectId],
+    ref: "reviewModel",
+  },
+  averageRating: {
+    type: Number,
+  },
 });
 const FoodplanModel = mongooes.model("FoodplanModel", planSchema);
 module.exports = FoodplanModel;
