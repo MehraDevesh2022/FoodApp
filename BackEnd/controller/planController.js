@@ -25,7 +25,7 @@ async function createPlanController(req, res) {
 async function getAllPlansController(req, res) {
   try {
     // get all plans from DB
-    const allPlans = await FoodModel.find();
+    const allPlans = await FoodModel.find().populate("review");
     res.status(201).json({
       result: "all food Plans ",
       allPlans: allPlans,
