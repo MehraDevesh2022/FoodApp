@@ -2,7 +2,7 @@ const userModel = require("../Model/userModel");
 // jwt ( for genrating token)
 const jwt = require("jsonwebtoken");
 // secret key file importing ||from  process.env if serever conected with heroku  
-const secrets =  require("../secret");
+const secrets = process.env.JWTSECRET  || require("../secret");
 const nodemailer = require("../utilities/nodemailer");
 
 // ******************************** controller function *****************************\\
@@ -47,9 +47,8 @@ async function loginController(req, res) {
       if (user) {
         // if with that email id user is available in server so do somthing else user need to signup first.
         const val = (user.password == password) ? true : false
-        
-        if (val) {
-           console.log(val);
+           if (val) {
+         
           //create JWT ==>  paylod (_id) + secret key(secrets.JWTSECRET) + by dafault algo SHA256
           const token = jwt.sign(
             {
