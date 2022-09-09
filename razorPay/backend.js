@@ -42,9 +42,9 @@ app.get("/checkout", async function (req, res) {
     product: planName,
   });
 });
-
-app.listen(3000, function(){
-    console.log("server started at 3000");
+ const port  = process.env.PORT || 3000
+app.listen(port, function(){
+    console.log(`server started at ${port}`);
 })
 
 // verfication after payment from razorpay / address regiter at webhook local to gloabl address using ngrok
