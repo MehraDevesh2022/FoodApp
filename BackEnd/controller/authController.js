@@ -2,7 +2,7 @@ const userModel = require("../Model/userModel");
 // jwt ( for genrating token)
 const jwt = require("jsonwebtoken");
 // secret key file importing ||from  process.env if serever conected with heroku  
-const secrets = process.env.JWTSECRET  || require("../secret").JWTSECRET;
+const JWTSECRET = process.env.JWTSECRET || require("../secret").JWTSECRET;
 const nodemailer = require("../utilities/nodemailer");
 
 // ******************************** controller function *****************************\\
@@ -55,7 +55,7 @@ async function loginController(req, res) {
               data: user["_id"],
               exp: Math.floor(Date.now() / 1000) + 60 * 60 * 24, // time limit
             },
-            secrets.JWTSECRET,
+            JWTSECRET,
           );
 
           res.cookie("JWT", token); // res to clint with token inside the cookie
