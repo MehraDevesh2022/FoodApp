@@ -24,7 +24,7 @@ app.use("/api/v1/review", reviewRoute);
 
 
 // creating a server at port number 3000 || heroku process.env.PORT (if server provided heroku then it will used process.env.PORT else loacly 3000)
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000; 
 app.listen(port, function () {
   console.log(`This is from Port ${port}`);
 });
