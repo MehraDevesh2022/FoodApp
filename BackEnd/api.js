@@ -24,7 +24,7 @@ app.use("/api/v1/plan", planRouter);
 app.use("/api/v1/review", reviewRoute);
 app.use("/api/v1/booking", bookingRoutes);
 
-app.post("/" , function(req , res){
+app.use("/" , function(req , res){
   res.send("<h1> This is foodAPP</h1>");
 })
 
