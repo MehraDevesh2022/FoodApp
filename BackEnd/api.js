@@ -24,7 +24,9 @@ app.use("/api/v1/plan", planRouter);
 app.use("/api/v1/review", reviewRoute);
 app.use("/api/v1/booking", bookingRoutes);
 
-app.post("<h1>backendApi</h1>")
+app.post("/" , function(req , res){
+  res.end("<h1> This is foodAPP</h1>");
+})
 
 // creating a server at port number 3000 || heroku process.env.PORT (if server provided heroku then it will used process.env.PORT else loacly 3000)
 const port = process.env.PORT || 3000; 
