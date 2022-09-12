@@ -57,7 +57,7 @@ let userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: [true, "Email is not enterd"],
-    unique: [true , "user with this email already register"]
+    unique: [true, "user with this email already register"],
   },
   phoneNumber: {
     type: String,
@@ -72,10 +72,14 @@ let userSchema = new mongoose.Schema({
     default: "itachi.jpg",
   },
   otp: {
-    type: String,
+    type: String, // this if for reset pass
   },
   otpExpiry: {
     type: Date,
+  },
+  booking: {
+    type: [mongoose.Schema.ObjectId], // for bookings update as id's array
+    ref: "bookingModel",
   },
 });
 // Model is nothing but similar to collection. it create collection using set of rules .. like given below (collection= foodmodel && Schema/rules => userSchema)

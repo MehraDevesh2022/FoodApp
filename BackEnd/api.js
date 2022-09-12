@@ -4,6 +4,7 @@ const userRouter = require("./routes/userRoutes");
 const authRouter = require("./routes/authRoutes");
 const planRouter = require("./routes/planRoutes");
 const reviewRoute = require("./routes/reviewRoutes");
+const bookingRoutes= require("./routes/bookingRoutes");
 
 // userModel with userSchema && and DataBase  Connection
 const userModel = require("./Model/userModel");
@@ -21,8 +22,9 @@ app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/user", userRouter);
 app.use("/api/v1/plan", planRouter);
 app.use("/api/v1/review", reviewRoute);
+app.use("/api/v1/booking", bookingRoutes);
 
-
+app.post("<h1>backendApi</h1>")
 
 // creating a server at port number 3000 || heroku process.env.PORT (if server provided heroku then it will used process.env.PORT else loacly 3000)
 const port = process.env.PORT || 3000; 
